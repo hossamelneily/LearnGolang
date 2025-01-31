@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strings"
+)
 
 // go is not a oo programming language
 // Create a new type of 'deck'
@@ -27,4 +31,16 @@ func (d deck) print() {
 	for index, card := range d {
 		fmt.Println(index, card)
 	}
+}
+
+func (d deck) saveToFile(filename string) error {
+	toString := strings.Join([]string(d), ",")
+	return os.WriteFile(filename, []byte(toString), 0666)
+}
+
+func readFromFile(filename string) []string {
+
+	byteFromFile, _ := os.ReadFile(filename)
+	toString := strings.Split(string(byteFromFile), ",")
+	return toString
 }

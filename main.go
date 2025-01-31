@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // := combines both defalcation and initialization
 // uses for local scope and not for global scopes, in global scopes mainly uses var
 func main() {
@@ -9,6 +11,12 @@ func main() {
 	// slices can expand and shrink
 	cards := newCards()
 	// to add element we use append ( which will return new slice)
-	cards.print()
+	// cards.print()
+
+	// convert type deck to slice of strings and then to string with comma seperated
+	cards.saveToFile("test")
+	for _, card := range readFromFile("test") {
+		fmt.Println(card)
+	}
 
 }
