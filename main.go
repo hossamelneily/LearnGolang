@@ -11,12 +11,15 @@ func main() {
 	// slices can expand and shrink
 	cards := newCards()
 	// to add element we use append ( which will return new slice)
-	// cards.print()
+	cards.print()
 
 	// convert type deck to slice of strings and then to string with comma seperated
-	cards.saveToFile("test")
-	for _, card := range readFromFile("test") {
-		fmt.Println(card)
-	}
+	// cards.saveToFile("test")
+	// for _, card := range readFromFile("test") {
+	// 	fmt.Println(card)
+	// }
+
+	cards.suffle()
+	fmt.Println(cards)
 
 }
